@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./src/output.css" rel="stylesheet" />
+
+    <!-- Website Title -->
+    <title>DressLy</title>
+
+    <!-- Website Icon -->
+    <link rel="icon" href="public/assets/Logo.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Alpine Js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+  </head>
+  <body>
+    <header
+      class="relative py-4 lg:py-12 lg:px-16 xl:px-24 w-full z-[9999]"
+      x-data="{open:false}"
+      @click.away="open = false"
+    >
+      <div class="container">
+        <div class="flex items-center justify-between">
+          <!-- Hamburger (Mobile) -->
+          <div class="flex items-center justify-center lg:hidden">
+            <button @click="open = !open">
+              <img src="public/assets/icon/Hamburger-Menu.svg" alt="..." class="h-6 w-6 xl:h-7 xl:w-7">
+            </button>
+          </div>
+
+          <!-- Logo -->
+          <div class="flex items-center gap-1">
+            <img
+              src="public/assets/Logo.svg"
+              alt="..."
+              class="h-5 w-5 sm:h-6 sm:w-6 xl:h-7 xl:w-7"
+            />
+            <a
+              href="#"
+              class="font-lora font-semibold text-neutral-900 sm:text-lg lg:text-[20px] xl:text-[22px]"
+              >DressLy</a
+            >
+          </div>
+
+          <!-- NavList -->
+          <nav
+            class="hidden lg:flex items-center leading-snug gap-8 text-neutral-700 font-poppins font-semibold text-sm xl:text-lg"
+          >
+            <a
+              href="#"
+              class="hover:text-primary-500 transition ease-linear duration-150"
+              >Shop</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary-500 transition ease-linear duration-150"
+              >New Arrivals</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary-500 transition ease-linear duration-150"
+              >Sale</a
+            >
+            <a
+              href="#"
+              class="hover:text-primary-500 transition ease-linear duration-150"
+              >Blog</a
+            >
+          </nav>
+
+          <!-- Extra Nav (Mobile)-->
+          <div class="flex items-center gap-4">
+            <button class="hidden lg:block">
+              <img
+                src="public/assets/icon/Search.svg"
+                alt="..."
+                class="h-5 w-5 sm:h-6 sm:w-6 xl:h-7 xl:w-7"
+              />
+            </button>
+            <button>
+              <img
+                src="public/assets/icon/Shop-Bag.svg"
+                alt="..."
+                class="h-5 w-5 sm:h-6 sm:w-6 xl:h-7 xl:w-7"
+              />
+            </button>
+            <button class="hidden lg:block">
+              <img
+                src="public/assets/icon/User.svg"
+                alt="..."
+                class="h-5 w-5 sm:h-6 sm:w-6 xl:h-7 xl:w-7"
+              />
+            </button>
+          </div>
+        </div>
+        <!-- Hamburger Nav -->
+        <div
+          class="absolute flex flex-col gap-2 p-3 rounded-lg top-full bg-primary-500 leading-snug text-neutral-700 font-poppins font-semibold text-lg z-[9999] lg:hidden"
+          x-show.important="open"
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform -translate-x-4"
+          x-transition:enter-end="opacity-100 transform translate-x-0"
+          x-transition:leave="transition ease-in duration-300"
+          x-transition:leave-start="opacity-100 transform translate-x-0"
+          x-transition:leave-end="opacity-0 transform -translate-x-4"
+        >
+          <a
+            href="#"
+            class="hover:text-neutral-100 transition ease-linear duration-150"
+            >Shop</a
+          >
+          <a
+            href="#"
+            class="hover:text-neutral-100 transition ease-linear duration-150"
+            >New Arrivals</a
+          >
+          <a
+            href="#"
+            class="hover:text-neutral-100 transition ease-linear duration-150"
+            >Sale</a
+          >
+          <a
+            href="#"
+            class="hover:text-neutral-100 transition ease-linear duration-150"
+            >Blog</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-8 lg:px-16 xl:px-24">
+      <div class="container">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-center">
+          <!-- Hero Image -->
+          <div class="w-full flex justify-center lg:justify-end lg:order-2">
+            <img
+              src="public/assets/hero-section/img-hero.png"
+              class="lg:h-[350px] xl:h-[450px]"
+              alt="..."
+            />
+          </div>
+
+          <!-- Text Hero -->
+          <div class="w-full lg:order-1">
+            <div class="flex flex-col w-full gap-2 mb-6">
+              <h3
+                class="text-[28px] xs:text-[32px] lg:text-[28px] xl:text-[32px] sm:text-center lg:text-start lg:w-3/4 leading-tight font-semibold text-neutral-900"
+              >
+                Discover the Latest Fashion Trends
+              </h3>
+              <p
+                class="font-ubuntu leading-snug text-[14px] xs:text-[16px] lg:text-[14px] xl:text-[16px] sm:text-center lg:text-start text-neutral-500"
+              >
+                From stylish dresses to trendy tops and must-have accessories,
+                we have everything you need to stay on top of the latest fashion
+                trends. Our expertly curated collection features the hottest
+                styles from top designers, so you can always find the perfect
+                look for any occasion. Shop now and discover your new favorite
+                fashion pieces.
+              </p>
+            </div>
+            <button
+              class="p-3 lg:p-2 xl:p-3 w-full lg:w-[35%] font-ubuntu font-bold leading-snug lg:text-[14px] xl:text-[16px] z-30 bg-primary-500 rounded-md"
+            >
+              Shop Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Section -->
+    <section id="brand" class="lg:px-16 xl:px-24">
+      <div class="container">
+        <div
+          class="w-full grid justify-center grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+        >
+          <img
+            src="public/assets/brand-logo/Berluti-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+          <img
+            src="public/assets/brand-logo/Gucci-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+          <img
+            src="public/assets/brand-logo/Jimmy_Choo_Ltd-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+          <img
+            src="public/assets/brand-logo/Burberry-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+          <img
+            src="public/assets/brand-logo/Balenciaga-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+          <img
+            src="public/assets/brand-logo/Louis_Vuitton-Logo.png"
+            class="h-[100px]"
+            alt="..."
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Top-Selection Section -->
+    <section id="top-selection" class="py-8 lg:px-16 xl:px-24">
+      <div class="container">
+        <div class="flex flex-col gap-4">
+          <!-- Title -->
+          <div class="w-full">
+            <h4
+              class="leading-tight font-semibold text-neutral-900 text-[24px] lg:text-[28px]"
+            >
+              Top Selections
+            </h4>
+          </div>
+
+          <!-- Image -->
+          <div class="flex flex-col sm:flex-row gap-2">
+            <!-- Shirt Image -->
+            <div
+              class="w-full relative h-[300px] sm:h-[200px] md:h-[250px] lg:h-[300px] 2xl:h-[350px]"
+            >
+              <img
+                src="public/assets/top-selection/shirt.png"
+                alt="..."
+                class="w-full h-full bg-center bg-cover rounded-md brightness-50"
+              />
+              <h3
+                class="absolute w-full text-center bottom-8 font-semibold leading-4 text-[20px] sm:text-[15px] md:text-[17px] text-neutral-100"
+              >
+                Elegant Eid Attire
+              </h3>
+            </div>
+            <!-- Bag Image -->
+            <div
+              class="w-full relative h-[300px] sm:h-[200px] md:h-[250px] lg:h-[300px] 2xl:h-[350px]"
+            >
+              <img
+                src="public/assets/top-selection/bag.png"
+                alt="..."
+                class="w-full h-full object-cover rounded-md brightness-50"
+              />
+              <h3
+                class="absolute w-full text-center bottom-8 font-semibold leading-4 text-[20px] sm:text-[15px] md:text-[17px] text-neutral-100"
+              >
+                Accessory Essentials
+              </h3>
+            </div>
+            <!-- Shoes Image -->
+            <div
+              class="w-full relative h-[300px] sm:h-[200px] md:h-[250px] lg:h-[300px] 2xl:h-[350px]"
+            >
+              <img
+                src="public/assets/top-selection/shoes.png"
+                alt="..."
+                class="w-full h-full object-cover rounded-md brightness-50"
+              />
+              <h3
+                class="absolute w-full text-center bottom-8 font-semibold leading-4 text-[20px] sm:text-[15px] md:text-[17px] text-neutral-100"
+              >
+                Everyday Shoes
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bestseller Section -->
+    <section id="best-seller" class="py-8 lg:px-16 xl:px-24">
+      <div class="container">
+        <!-- Heading -->
+        <div class="w-full flex justify-between items-baseline mb-4">
+          <h4 class="text-neutral-900 leading-tight font-semibold text-[24px]">
+            Bestsellers
+          </h4>
+          <a
+            href="#"
+            class="text-primary-500 leading-snug font-semibold text-[16px]"
+            >See all</a
+          >
+        </div>
+
+        <!-- Product Area -->
+        <div
+          class="overflow-auto whitespace-nowrap flex gap-2 md:grid md:grid-cols-4"
+        >
+          <!-- Product 1 -->
+          <div
+            class="p-2 flex flex-col gap-2 h-[225px] md:h-[250px] lg:h-[275px] xl:h-[325px] 2xl:h-[375px] min-w-[150px] max-w-[150px] md:min-w-full rounded-lg border-[1px] border-neutral-300"
+          >
+            <img
+              src="public/assets/best-seller/shoes.png"
+              alt="..."
+              class="rounded-lg h-[125px] md:h-[175px] xl:h-[225px] 2xl:h-[275px] w-full"
+            />
+            <div class="flex flex-col">
+              <h5
+                class="text-neutral-900 font-ubuntu leading-snug text-[16px] xl:text-[18px] 2xl:text-[20px] font-medium"
+              >
+                Sneakers
+              </h5>
+              <!-- Rate & Price -->
+              <div class="flex flex-col gap-1">
+                <div class="flex items-baseline gap-1">
+                  ⭐
+                  <p
+                    class="font-ubuntu text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] leading-snug text-neutral-500"
+                  >
+                    4.5 <span class="text-neutral-300">(325)</span>
+                  </p>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <p
+                    class="font-ubuntu leading-snug text-neutral-900 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]"
+                  >
+                    Rp. 965.500
+                  </p>
+                  <p
+                    class="font-ubuntu text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] text-discount line-through"
+                  >
+                    Rp. 1.097.500
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Product 2 -->
+          <div
+            class="p-2 flex flex-col gap-2 h-[225px] md:h-[250px] lg:h-[275px] xl:h-[325px] 2xl:h-[375px] min-w-[150px] max-w-[150px] md:min-w-full rounded-lg border-[1px] border-neutral-300"
+          >
+            <img
+              src="public/assets/best-seller/shirt-female.png"
+              alt="..."
+              class="rounded-lg h-[125px] md:h-[175px] xl:h-[225px] 2xl:h-[275px] w-full"
+            />
+            <div class="flex flex-col">
+              <h5
+                class="text-neutral-900 font-ubuntu leading-snug text-[16px] xl:text-[18px] 2xl:text-[20px] font-medium"
+              >
+                Women's Robes
+              </h5>
+              <!-- Rate & Price -->
+              <div class="flex flex-col gap-1">
+                <div class="flex items-baseline gap-1">
+                  ⭐
+                  <p
+                    class="font-ubuntu text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] leading-snug text-neutral-500"
+                  >
+                    4.5 <span class="text-neutral-300">(325)</span>
+                  </p>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <p
+                    class="font-ubuntu leading-snug text-neutral-900 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]"
+                  >
+                    Rp. 755.000
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Product 3 -->
+          <div
+            class="p-2 flex flex-col gap-2 h-[225px] md:h-[250px] lg:h-[275px] xl:h-[325px] 2xl:h-[375px] min-w-[150px] max-w-[150px] md:min-w-full rounded-lg border-[1px] border-neutral-300"
+          >
+            <img
+              src="public/assets/best-seller/bag.png"
+              alt="..."
+              class="rounded-lg h-[125px] md:h-[175px] xl:h-[225px] 2xl:h-[275px] w-full"
+            />
+            <div class="flex flex-col">
+              <h5
+                class="text-neutral-900 font-ubuntu leading-snug text-[16px] xl:text-[18px] 2xl:text-[20px] font-medium"
+              >
+                Bag
+              </h5>
+              <!-- Rate & Price -->
+              <div class="flex flex-col gap-1">
+                <div class="flex items-baseline gap-1">
+                  ⭐
+                  <p
+                    class="font-ubuntu text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] leading-snug text-neutral-500"
+                  >
+                    4.5 <span class="text-neutral-300">(325)</span>
+                  </p>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <p
+                    class="font-ubuntu leading-snug text-neutral-900 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]"
+                  >
+                    Rp. 920.500
+                  </p>
+                  <p
+                    class="font-ubuntu text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px] text-discount line-through"
+                  >
+                    Rp. 1.500.000
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Product 4 -->
+          <div
+            class="p-2 flex flex-col gap-2 h-[225px] md:h-[250px] lg:h-[275px] xl:h-[325px] 2xl:h-[375px] min-w-[150px] max-w-[150px] md:min-w-full rounded-lg border-[1px] border-neutral-300"
+          >
+            <img
+              src="public/assets/best-seller/shirt-male.png"
+              alt="..."
+              class="rounded-lg h-[125px] md:h-[175px] xl:h-[225px] 2xl:h-[275px] w-full"
+            />
+            <div class="flex flex-col">
+              <h5
+                class="text-neutral-900 font-ubuntu leading-snug text-[16px] xl:text-[18px] 2xl:text-[20px] font-medium"
+              >
+                Men's Robes
+              </h5>
+              <!-- Rate & Price -->
+              <div class="flex flex-col gap-1">
+                <div class="flex items-baseline gap-1">
+                  ⭐
+                  <p
+                    class="font-ubuntu text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px] leading-snug text-neutral-500"
+                  >
+                    4.5 <span class="text-neutral-300">(325)</span>
+                  </p>
+                </div>
+                <div class="flex items-baseline gap-1">
+                  <p
+                    class="font-ubuntu leading-snug text-neutral-900 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]"
+                  >
+                    Rp. 680.000
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Easy Way To Order Section -->
+    <section id="way-to-order" class="lg:px-16 xl:px-24">
+      <div class="container">
+        <div
+          class="flex flex-col gap-4 items-center justify-center w-full rounded-2xl bg-primary-300 p-6"
+        >
+          <h4
+            class="text-neutral-900 font-semibold text-[20px] md:pl-4 md:text-[32px] leading-tight"
+          >
+            The Easy Way To Order
+          </h4>
+          <!-- Step -->
+          <div
+            class="relative after:content-[''] after:absolute after:top-0 after:left-5 md:after:left-8 md:after:-top-[52px] after:w-full after:z-10 after:border-l-[1px] md:after:border-b-[1px] md:after:border-l-0 after:border-primary-700 after:border-dashed md:after:w-[82%] after:h-full"
+          >
+            <ul class="flex flex-col md:flex-row gap-10">
+              <li class="flex md:flex-col items-center gap-4 z-20">
+                <span
+                  class="bg-primary-200 py-2 px-4 rounded-[50%] text-neutral-900 leading-snug font-bold font-ubuntu text-[16px]"
+                  >1</span
+                >
+                <p
+                  class="text-neutral-500 leading-snug text-[14px] font-ubuntu"
+                >
+                  Select Product
+                </p>
+              </li>
+              <li class="flex md:flex-col items-center gap-4 z-20">
+                <span
+                  class="bg-primary-200 py-2 px-4 rounded-[50%] text-neutral-900 leading-snug font-bold font-ubuntu text-[16px]"
+                  >2</span
+                >
+                <p
+                  class="text-neutral-500 leading-snug text-[14px] font-ubuntu"
+                >
+                  Login/Register
+                </p>
+              </li>
+              <li class="flex md:flex-col items-center gap-4 z-20">
+                <span
+                  class="bg-primary-200 py-2 px-4 rounded-[50%] text-neutral-900 leading-snug font-bold font-ubuntu text-[16px]"
+                  >3</span
+                >
+                <p
+                  class="text-neutral-500 leading-snug text-[14px] font-ubuntu"
+                >
+                  Shopping bag
+                </p>
+              </li>
+              <li class="flex md:flex-col items-center gap-4 z-20">
+                <span
+                  class="bg-primary-200 py-2 px-4 rounded-[50%] text-neutral-900 leading-snug font-bold font-ubuntu text-[16px]"
+                  >4</span
+                >
+                <p
+                  class="text-neutral-500 leading-snug text-[14px] font-ubuntu"
+                >
+                  Payment
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe Our Newsletter Section -->
+    <section id="subs-our-newsletter" class="lg:px-16 xl:px-24">
+      <div class="container">
+        <div
+          class="flex flex-col gap-4 justify-center items-start lg:items-center py-8"
+        >
+          <!-- Title -->
+          <h4
+            class="text-neutral-900 text-[20px] lg:text-[32px] font-semibold leading-tight"
+          >
+            Subscribe Our Newsletter
+          </h4>
+
+          <!-- Form Input -->
+          <form class="w-full flex lg:justify-center gap-4">
+            <input
+              type="text"
+              class="border-[1px] border-neutral-300 rounded-lg w-[90%] sm:w-[93%] md:w-[95%] lg:w-[65%] placeholder:text-[13px] lg:text-[15px] leading-snug font-ubuntu p-[8px]"
+              placeholder="Type your mail"
+            />
+            <button
+              class="flex justify-center items-center w-[12%] sm:w-[7%] md:w-[5%] lg:w-[4%] xl:w-[3.5%] 2xl:w-[3%] p-2 rounded-lg bg-primary-500"
+            >
+              <img src="public/assets/Union.svg" alt="..." />
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 lg:px-16 xl:px-24">
+      <div class="container">
+        <div class="flex flex-col lg:flex-row gap-6">
+          <!-- Logo -->
+          <div class="flex flex-col gap-4 lg:w-1/4">
+            <div class="flex items-center gap-1">
+              <img
+                src="public/assets/Logo.svg"
+                alt="..."
+                class="h-6 w-6 sm:h-7 sm:w-7"
+              />
+              <a
+                href="#"
+                class="font-lora font-semibold text-neutral-900 text-[20px] sm:text-[24px]"
+                >DressLy</a
+              >
+            </div>
+            <!-- Description -->
+            <p
+              class="font-ubuntu leading-snug sm:w-3/4 lg:w-full text-[13px] sm:text-[15px] text-neutral-500"
+            >
+              We are an online fashion store that provides a variety of the
+              latest and trendy fashion products for men and women. We always
+              try to provide our customers with a pleasant and easy shopping
+              experience.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col lg:flex-row lg:justify-center gap-6 lg:w-[45%]"
+          >
+            <!-- Product Category -->
+            <div class="flex flex-col gap-4">
+              <div class="flex">
+                <h4
+                  class="text-neutral-900 font-ubuntu font-medium leading-snug text-[16px] sm:text-[18px]"
+                >
+                  Product Category
+                </h4>
+              </div>
+              <div
+                class="flex flex-col gap-2 *:text-neutral-500 *:font-ubuntu *:text-[14px] sm:*:text-[16px] *:leading-snug"
+              >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Women's clothing</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Menswear</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Accessories</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Shoes</a
+                >
+              </div>
+            </div>
+
+            <!-- Company -->
+            <div class="flex flex-col gap-4">
+              <div class="flex">
+                <h4
+                  class="text-neutral-900 font-ubuntu font-medium leading-snug text-[16px] sm:text-[18px]"
+                >
+                  Company
+                </h4>
+              </div>
+              <div
+                class="flex flex-col gap-2 *:text-neutral-500 *:font-ubuntu *:text-[14px] sm:*:text-[16px] *:leading-snug"
+              >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >About</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Contact</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Privacy Policy</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-primary-500 transition ease-linear duration-150"
+                  >Terms Of Service</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Download -->
+          <div class="flex flex-col gap-4 lg:w-[35%]">
+            <div class="flex">
+              <h4
+                class="font-ubuntu font-medium leading-snug text-[16px] sm:text-[18px] text-neutral-900"
+              >
+                Download Our App
+              </h4>
+            </div>
+
+            <div class="flex gap-2 w-full">
+              <!-- App Store -->
+              <button
+                class="cursor-pointer flex justify-center items-center w-1/2 p-2 gap-2 bg-neutral-900 rounded-lg"
+              >
+                <img src="public/assets/download/AppStore.png" alt="..." />
+                <div class="flex flex-col">
+                  <span
+                    class="text-neutral-100 text-[10px] sm:text-[12px] font-ubuntu"
+                    >Download on the</span
+                  >
+                  <p
+                    class="text-neutral-100 text-[14px] sm:text-[16px] leading-snug font-ubuntu font-medium"
+                  >
+                    App Store
+                  </p>
+                </div>
+              </button>
+              <!-- Play Store -->
+              <button
+                class="cursor-pointer flex justify-center items-center w-1/2 p-2 gap-2 bg-neutral-900 rounded-lg"
+              >
+                <img src="public/assets/download/PlayStore.png" alt="..." />
+                <div class="flex flex-col">
+                  <span
+                    class="text-neutral-100 text-[10px] sm:text-[12px] font-ubuntu"
+                    >Get It On</span
+                  >
+                  <p
+                    class="text-neutral-100 text-[14px] sm:text-[16px] leading-snug font-ubuntu font-medium"
+                  >
+                    Google Play
+                  </p>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
